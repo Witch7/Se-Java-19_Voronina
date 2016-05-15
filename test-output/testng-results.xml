@@ -2,28 +2,28 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7506" started-at="2016-05-15T13:56:25Z" finished-at="2016-05-15T13:56:33Z">
+  <suite name="Tests" duration-ms="6810" started-at="2016-05-15T13:59:34Z" finished-at="2016-05-15T13:59:41Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7506" started-at="2016-05-15T13:56:25Z" finished-at="2016-05-15T13:56:33Z">
+    <test name="Test1" duration-ms="6810" started-at="2016-05-15T13:59:34Z" finished-at="2016-05-15T13:59:41Z">
       <class name="LessonsSe.Login2Test">
-        <test-method status="PASS" signature="initTestSuite()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="initTestSuite" is-config="true" duration-ms="231" started-at="2016-05-15T18:56:25Z" finished-at="2016-05-15T18:56:25Z">
+        <test-method status="PASS" signature="initTestSuite()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="initTestSuite" is-config="true" duration-ms="322" started-at="2016-05-15T18:59:33Z" finished-at="2016-05-15T18:59:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initTestSuite -->
-        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="initWebDriver" is-config="true" duration-ms="5486" started-at="2016-05-15T18:56:25Z" finished-at="2016-05-15T18:56:31Z">
+        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="initWebDriver" is-config="true" duration-ms="5244" started-at="2016-05-15T18:59:34Z" finished-at="2016-05-15T18:59:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initWebDriver -->
-        <test-method status="PASS" signature="testLogin2()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="testLogin2" duration-ms="2000" started-at="2016-05-15T18:56:31Z" finished-at="2016-05-15T18:56:33Z">
+        <test-method status="PASS" signature="testLogin2()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="testLogin2" duration-ms="1544" started-at="2016-05-15T18:59:39Z" finished-at="2016-05-15T18:59:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLogin2 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="tearDown" is-config="true" duration-ms="223" started-at="2016-05-15T18:56:33Z" finished-at="2016-05-15T18:56:33Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:LessonsSe.Login2Test@77e4c80f]" name="tearDown" is-config="true" duration-ms="237" started-at="2016-05-15T18:59:41Z" finished-at="2016-05-15T18:59:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- LessonsSe.Login2Test -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Tests -->
 </testng-results>
