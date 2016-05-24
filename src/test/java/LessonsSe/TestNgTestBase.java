@@ -1,5 +1,6 @@
 package LessonsSe;
 
+import org.testng.annotations.AfterMethod;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -41,7 +42,8 @@ public class TestNgTestBase {
     driver = WebDriverFactory.getDriver(gridHubUrl, capabilities);
   }
 
-  @AfterSuite(alwaysRun = true)
+  @AfterMethod
+@AfterSuite(alwaysRun = true)
   public void tearDown() {
     WebDriverFactory.dismissAll();
   }

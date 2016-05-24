@@ -1,7 +1,7 @@
 package LessonsSe;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import org.openqa.selenium.By;
 
 public class LoginTest extends TestNgTestBase {
 
