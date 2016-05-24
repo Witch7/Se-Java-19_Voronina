@@ -33,7 +33,7 @@ public class SearshFilmOk extends TestNgTestBase {
 		driver.findElement(By.id("q")).sendKeys("Film");
 		driver.findElement(By.id("q")).sendKeys(Keys.ENTER);
 		(new WebDriverWait(driver, 30, 1)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("results")));
-		Assert.assertTrue(driver.findElement(By.cssSelector(".title")).getText().contains("Film"),
+		Assert.assertTrue(driver.findElement(By.cssSelector(".title")).getText().equals("FilmForSearsh"),
 				"Такого фильма нет");
 		
 		driver.quit();
