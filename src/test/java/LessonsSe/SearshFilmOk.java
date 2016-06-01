@@ -36,7 +36,7 @@ public class SearshFilmOk extends TestNgTestBase {
 		driver.findElement(By.id("q")).sendKeys("Film");
 		driver.findElement(By.id("q")).sendKeys(Keys.ENTER);
 		(new WebDriverWait(driver, 30, 1)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("results")));
-		if (driver.findElements(By.cssSelector(".title")).size() < kol) {
+		if (driver.findElements(By.cssSelector(".title")).size() <= kol) {
 			Assert.assertTrue(driver.findElement(By.cssSelector(".title")).getText().equals("FilmForSearsh"),
 					"Такого фильма нет");
 		} else Assert.fail("Количество фильмов осталось прежним");
