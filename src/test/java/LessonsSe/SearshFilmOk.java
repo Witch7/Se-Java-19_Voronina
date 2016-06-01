@@ -28,14 +28,20 @@ public class SearshFilmOk extends TestNgTestBase {
 		driver.findElement(By.cssSelector("input[name='year']")).sendKeys("2016");
 		driver.findElements(By.cssSelector("input[type='submit']")).get(1).click();
 		driver.findElements(By.cssSelector(".center>nav>ul>li>a")).get(0).click();
+		(new WebDriverWait(driver, 30, 1))
+		.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".movie_box")));
+		int kol = driver.findElements(By.cssSelector(".title")).size();
 
 		// Поиск фильма
 		driver.findElement(By.id("q")).sendKeys("Film");
 		driver.findElement(By.id("q")).sendKeys(Keys.ENTER);
 		(new WebDriverWait(driver, 30, 1)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("results")));
-		Assert.assertTrue(driver.findElement(By.cssSelector(".title")).getText().equals("FilmForSearsh"),
-				"Такого фильма нет");
-		
+		if (driver.findElements(By.cssSelector(".title")).size() < kol) {
+			Assert.assertTrue(driver.findElement(By.cssSelector(".title")).getText().equals("FilmForSearsh"),
+					"Такого фильма нет");
+		} else Assert.fail("Количество фильмов осталось прежним");
+
+
 		driver.quit();
 	}
 
