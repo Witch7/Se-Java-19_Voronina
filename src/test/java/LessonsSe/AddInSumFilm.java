@@ -1,5 +1,6 @@
 package LessonsSe;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,11 +27,11 @@ public class AddInSumFilm extends TestNgTestBase {
 		driver.findElement(By.cssSelector("input[name='name']")).sendKeys("FilmNew");
 		driver.findElement(By.cssSelector("input[name='year']")).sendKeys("2010");
 		driver.findElements(By.cssSelector("input[type='submit']")).get(1).click();
-		String elurl = "movie_" + driver.getCurrentUrl().substring(38);
+		String elurl = "movie_" + driver.getCurrentUrl().substring(39);
 		driver.findElements(By.cssSelector(".center>nav>ul>li>a")).get(0).click();
 		(new WebDriverWait(driver, 30, 1))
 				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".title")));
-		driver.findElement(By.id(elurl)).isDisplayed();
+		Assert.assertTrue(driver.findElement(By.id(elurl)).getAttribute("id").equals(elurl), "Нет такого идентифекатора фильма");
 
 		driver.quit();
 	}

@@ -17,3 +17,11 @@ buildNumber.properties
 .idea/
 
 SelJava.iml
+
+test-output/
+
+test-output/Default suite/Default test.html
+
+test-output/Default suite/Default test.html
+
+test-output/old/Default suite/methods-alphabetical.html
