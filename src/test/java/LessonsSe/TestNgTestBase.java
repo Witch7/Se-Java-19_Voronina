@@ -1,50 +1,23 @@
 package LessonsSe;
 
-import org.testng.annotations.AfterMethod;
-import java.io.IOException;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.Capabilities;
-
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeClass;
 
-import ru.stqa.selenium.factory.WebDriverFactory;
-import ru.stqa.selenium.factory.WebDriverFactoryMode;
+import lessonsSe.applogic.ApplicationManager;
+import lessonsSe.applogic2.ApplicationManager2;
 
-import LessonsSe.util.PropertyLoader;
-
-/**
- * Base class for TestNG-based test classes
- */
 public class TestNgTestBase {
 
-  protected static String gridHubUrl;
-  protected static String baseUrl;
-  protected static Capabilities capabilities;
+  protected ApplicationManager app;
 
-  protected WebDriver driver;
+	@BeforeClass
+	public void init() {
+		app = new ApplicationManager2();
+	}
+	
+	@AfterSuite
+	public void stop() {
+	  app.stop();
+	}
 
-  @BeforeSuite
-  public void initTestSuite() throws IOException {
-    baseUrl = PropertyLoader.loadProperty("site.url");
-    gridHubUrl = PropertyLoader.loadProperty("grid.url");
-    if ("".equals(gridHubUrl)) {
-      gridHubUrl = null;
-    }
-    capabilities = PropertyLoader.loadCapabilities();
-    WebDriverFactory.setMode(WebDriverFactoryMode.THREADLOCAL_SINGLETON);
-  }
-
-  @BeforeMethod
-  public void initWebDriver() {
-    driver = WebDriverFactory.getDriver(gridHubUrl, capabilities);
-  }
-
-  @AfterMethod
-@AfterSuite(alwaysRun = true)
-  public void tearDown() {
-    WebDriverFactory.dismissAll();
-  }
 }

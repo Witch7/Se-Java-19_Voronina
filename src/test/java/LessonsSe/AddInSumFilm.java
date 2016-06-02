@@ -1,27 +1,40 @@
 package LessonsSe;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import lessonsSe.model.User;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddInSumFilm extends TestNgTestBase {
+	@BeforeMethod
+	public void mayBeLogout() {
+		if (app.getUserHelper().isNotLoggedIn()) {
+			User user = new User().setLogin("admin").setPassword("admin");
+			app.getUserHelper().isLoggedInAs(user);
+		}
+		return;
+	}
 
 	@Test
 	public void addInSumFilm() throws Exception {
 		// Вход и авторизация на учебный проект
-		driver.get(baseUrl + "/php4dvd/");
-		String username = "username";
-		driver.findElement(By.id(username)).clear();
-		driver.findElement(By.id(username)).sendKeys("admin");
-		String password = "password";
-		driver.findElement(By.name(password)).clear();
-		driver.findElement(By.name(password)).sendKeys("admin");
-		driver.findElement(By.name("submit")).click();
+		app.getNavigationHelper().gotoAddFilmPage();
+//		driver.get(baseUrl + "/php4dvd/");
+//		String username = "username";
+//		driver.findElement(By.id(username)).clear();
+//		driver.findElement(By.id(username)).sendKeys("admin");
+//		String password = "password";
+//		driver.findElement(By.name(password)).clear();
+//		driver.findElement(By.name(password)).sendKeys("admin");
+//		driver.findElement(By.name("submit")).click();
 
 		// Добавление нового фильма произвольного фильма
-		driver.findElements(By.cssSelector(".button>div>a>img")).get(0).click();
+//		driver.findElements(By.cssSelector(".button>div>a>img")).get(0).click();
 		(new WebDriverWait(driver, 30, 1))
 				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".required.error")));
 		driver.findElement(By.cssSelector("input[name='name']")).sendKeys("FilmNew");
